@@ -57,18 +57,27 @@ public class ExplorerSearch {
         if (x == -1 || y == -1) return 0;
 
         // recurse through helper
-        // return amount of tiles in visited
-        return -1;
+        reachableAreaHelper(island, x, y, visited);
+        // Count the number of visited cells
+        int count = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (visited[i][j]) count++;
+            }
+        }
+        return count;
     }
 
-    public static void reachableAreaHelper(int[][] island, int row, int col, boolean[][] visited){
+    public static void reachableAreaHelper(int[][] island, int xCoordinate, int yCoordinate, boolean[][] visited){
+        // base cases
+        if (xCoordinate < 0 || yCoordinate < 0 || xCoordinate >= island.length || yCoordinate >= island[0].length) return;
+        if (visited[xCoordinate][yCoordinate] || island[xCoordinate][yCoordinate] == 2 || island[xCoordinate][yCoordinate] == 3) return;
 
+        visited[xCoordinate][yCoordinate] = true;
+        reachableAreaHelper(island, xCoordinate + 1, yCoordinate, visited); 
+        reachableAreaHelper(island, xCoordinate - 1, yCoordinate, visited); 
+        reachableAreaHelper(island, xCoordinate, yCoordinate + 1, visited); 
+        reachableAreaHelper(island, xCoordinate, yCoordinate - 1, visited); 
     }
-
-    // helper params: currentCoordinates(first time explorer coordinates), island, visited
-        // we already know if there is a explorer, so dont need to check for null
-        // add current tile to visited
-        // check in each direction from the coordinates
-            // if in range of island AND traversable
-               // recurse at coordinate
+    
 }
