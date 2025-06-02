@@ -32,6 +32,26 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
+
+    // explorer helper
+        // through each column
+            // through each row
+                // if zero
+                   // set location
+        // else no explorer
+            // return 0 - there is no explorer, so there is nothing to explore.
+
+        // have a visited 
+        // recurse through helper
+        // return amount of tiles in visited
         return -1;
     }
+
+    // helper params: currentCoordinates(first time explorer coordinates), island, visited
+        // we already know if there is a explorer, so dont need to check for null
+        // add current tile to visited
+        // check in each direction from the coordinates
+            // if in range of island AND traversable
+               // recurse at coordinate
+
 }
