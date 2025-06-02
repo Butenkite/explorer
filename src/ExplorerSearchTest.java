@@ -52,6 +52,14 @@ public class ExplorerSearchTest {
         assertEquals(20, actual);
     }
 
+        public void testReachableArea_emptyIsland() {
+        int[][] island = {
+            {},
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(0, actual);
+    }
+
     // Add more tests here!
     // Come up with varied cases
 }
